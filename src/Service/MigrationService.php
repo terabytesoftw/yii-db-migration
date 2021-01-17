@@ -564,16 +564,16 @@ final class MigrationService
     {
         $this->beforeMigrate();
         $migration->up($this->createBuilder());
-        $this->addMigrationHistory(get_class($migration));
         $this->afterMigrate();
+        $this->addMigrationHistory(get_class($migration));
     }
 
     public function down(RevertibleMigrationInterface $migration): void
     {
         $this->beforeMigrate();
         $migration->down($this->createBuilder());
-        $this->removeMigrationHistory(get_class($migration));
         $this->afterMigrate();
+        $this->removeMigrationHistory(get_class($migration));
     }
 
     private function beforeMigrate(): void
